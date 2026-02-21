@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>WebDevPro</title>
+    <link rel="shortcut icon" href="accest/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "yFcyTxvHr8GE3fw8i",
+      });
+   })();
+</script>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="scrollToSection('home')">WebDevPro</div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a onclick="scrollToSection('home'); toggleMenu()">Home</a>
+                <a onclick="scrollToSection('services'); toggleMenu()">Services</a>
+                <a class="always" onclick="scrollToSection('portfolio'); toggleMenu()">Portfolio</a>
+                <a onclick="scrollToSection('testimonials'); toggleMenu()">Testimonials</a>
+                <a onclick="scrollToSection('blog'); toggleMenu()">Blog</a>
+                <a onclick="scrollToSection('contact'); toggleMenu()">Contact</a>
+                <button class="btn btn-primary" onclick="openOrderModal()">Order Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text" data-aos="fade-right">
+                        <h1>Professional <span>Web Development</span> Services for Your Business</h1>
+                        <p>Get a stunning, responsive website that converts visitors into customers. Fast delivery, modern design, and SEO optimized.</p>
+                        <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 30px;">
+                            <button class="btn btn-primary" onclick="openOrderModal()">Start Your Project</button>
+                            <button class="btn btn-outline" onclick="scrollToSection('portfolio')">View Portfolio</button>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">150+</div>
+                                <div class="stat-label">Projects Completed</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Happy Clients</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Support</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600" alt="Web Development">
+                        <div class="floating-card">
+                            <i class="fas fa-check-circle"></i>
+                            <span>500+ Lines of Code Daily</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">My Services</h2>
+                <p class="section-subtitle" data-aos="fade-up">Comprehensive web development solutions tailored to your needs</p>
+                
+                <div class="services-grid" id="servicesGrid">
+                    <!-- Services will be loaded dynamically via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Recent Projects</h2>
+                <p class="section-subtitle" data-aos="fade-up">Check out some of my latest work</p>
+                
+                <div class="portfolio-grid" id="portfolioGrid">
+                    <!-- Portfolio items will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Client Testimonials</h2>
+                <p class="section-subtitle" data-aos="fade-up">What my clients say about my work</p>
+                
+                <div class="testimonials-slider" id="testimonialsGrid">
+                    <!-- Testimonials will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Latest Blog Posts</h2>
+                <p class="section-subtitle" data-aos="fade-up">Web development tips and insights</p>
+                
+                <div class="blog-grid" id="blogGrid">
+                    <!-- Blog posts will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+                <p class="section-subtitle" data-aos="fade-up">Everything you need to know about my services</p>
+                
+                <div class="faq-container" id="faqContainer">
+                    <!-- FAQ items will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="section">
+            <div class="container">
+                <div class="newsletter" data-aos="zoom-in">
+                    <h2>Subscribe to My Newsletter</h2>
+                    <p>Get the latest web development tips and exclusive offers</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+                <p class="section-subtitle" data-aos="fade-up">Ready to start your project? Let's talk!</p>
+                
+                <div class="contact-container" data-aos="fade-up">
+                    <div class="contact-info">
+                        <h3>Let's Work Together</h3>
+                        <p>I'm always excited to take on new projects and help businesses grow online. Whether you need a simple website or a complex web application, I've got you covered.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>zobikhani961@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <h4>WhatsApp</h4>
+                                    <p>+92 3121690926</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Response Time</h4>
+                                    <p>Within 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" onsubmit="submitContactForm(event)">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Select Service</option>
+                                <option value="web">Web Development</option>
+                                <option value="ecommerce">E-commerce Website</option>
+                                <option value="redesign">Website Redesign</option>
+                                <option value="api">API Development</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Tell me about your project" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Order Modal -->
+    <div class="modal" id="orderModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; justify-content: center; align-items: center;">
+        <div style="background: white; border-radius: 40px; padding: 40px; max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h2 style="font-size: 2rem;">Place Your Order</h2>
+                <i class="fas fa-times" onclick="closeOrderModal()" style="cursor: pointer; font-size: 1.5rem;"></i>
+            </div>
+            
+            <form onsubmit="submitOrder(event)" id="orderForm">
+                <div class="form-group">
+                    <label>Select Service</label>
+                    <select name="service" required id="orderService">
+                        <option value="">Choose a service</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Your Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Project Details</label>
+                    <textarea name="details" rows="4" required placeholder="Tell me about your project requirements"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Budget ($)</label>
+                    <input type="number" name="budget" required min="100">
+                </div>
+                
+                <div class="form-group">
+                    <label>Timeline</label>
+                    <select name="timeline" required>
+                        <option value="1week">1 Week</option>
+                        <option value="2weeks">2 Weeks</option>
+                        <option value="3weeks">3 Weeks</option>
+                        <option value="1month">1 Month</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Submit Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas" id="toastIcon"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">WebDev Pro</div>
+                    <p>Professional web development services with 5+ years of experience. I create stunning, responsive websites that help businesses grow.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a onclick="scrollToSection('home')">Home</a></li>
+                        <li><a onclick="scrollToSection('services')">Services</a></li>
+                        <li><a onclick="scrollToSection('portfolio')">Portfolio</a></li>
+                        <li><a onclick="scrollToSection('testimonials')">Testimonials</a></li>
+                        <li><a onclick="scrollToSection('blog')">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a onclick="filterServices('web')">Web Development</a></li>
+                        <li><a onclick="filterServices('ecommerce')">E-commerce</a></li>
+                        <li><a onclick="filterServices('redesign')">Redesign</a></li>
+                        <li><a onclick="filterServices('api')">API Development</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info-footer">
+                        <a href="mailto:zobikhani961@gmail.com">
+                            <i class="fas fa-envelope"></i> zobikhani961@gmail.com
+                        </a>
+                        <a href="https://wa.me/923121690926" target="_blank">
+                            <i class="fab fa-whatsapp"></i> +92 3121690926
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/zobikhani961-arch"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/public-profile/settings/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/zobi_niazi_yrr?igsh=MWw3dGwzOHQ0ZDgzcg%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 WebDev Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
